@@ -24,12 +24,6 @@ Action table
 To hold the time ,duration 
 
 
-## References
-
-
-
-
-
 ## Requirements
 Django
 Arduino IDE
@@ -37,5 +31,5 @@ SQL
 HTML
 Python
 
-## Acknowledgements
+## References
 https://www.gametablesonline.com/blog/how-to-play-pool-beginners-guide/
