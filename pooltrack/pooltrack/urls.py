@@ -18,7 +18,7 @@ from django.urls import path,include
 from trackball import views
    
 urlpatterns = [
-	path('trackball/', include('trackball.urls')),
+	path('', include('trackball.urls')),
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    # path('', views.index, name='index'),
 ]
