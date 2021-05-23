@@ -1,15 +1,5 @@
-os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                      'pooltrack.settings')
-
-django.setup()
-
-from trackball.models import pool_table , action_table
-
-#push arduino data into django
-
-
-import mysql.connector
-from mysql.connector import Error
+# import mysql.connector
+# from mysql.connector import Error
 import datetime
 import serial
 import time
@@ -21,7 +11,18 @@ from stopwatch import Stopwatch
 from timeit import default_timer as timer
 from datetime import timedelta
 import pandas as pd
+import os
+import django
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                      'pooltrack.settings')
+
+django.setup()
+
+from trackball.models import pool_table , action_table 
+from django.contrib.auth.models import User
+
+#push arduino data into django
 
 #Arduino Startingg.......
 arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=.1)
@@ -40,6 +41,22 @@ while True:
         motion_time = 0.0 
         stopwatch = Stopwatch() # Stopwatch keeps running
 
+        #current date
+        y = datetime.datetime.now()
+        currentdate = y.strftime("%Y-%m-%d")
+        print(currentdate)
+
+        #first get the user
+        unique_user = User.objects.get(username="off-duty-manager")
+        unique_user_id = unique_user.id
+
+        #a user has a pool table
+        # pool = pool_table.objects.get(user_id = unique_user_id)
+
+
+        unique_pool_table = pool_table.objects.get(user_id=unique_user_id)
+        unique_pool_table_id = unique_pool_table.id
+
         if s == "1": 
             #Get current time
             x = datetime.datetime.now()
@@ -47,34 +64,35 @@ while True:
             # print("Inactive_time")
             print(currenttime)
          
+            #date
+
             start = timer()
+
+            #In that pool table there is action happening , The game is going on
+
+            pool_data = action_table.objects.create(pool_table_id = unique_pool_table_id,date = currentdate,time = currenttime,status = s )
+
+       
         else:
             #Get current time
             c = datetime.datetime.now()
+            # currenttime = c.strftime("%X")
             currenttime = c.strftime("%X")
             # print("Inactive_time")
             print(currenttime)
             #do some stuff
             end = timer()
-            print("Been Active for")
-            motion_bit = timedelta(seconds=end-start)
-            print(motion_bit)
+            # print("Been Active for")
+            # motion_bit = timedelta(seconds=end-start)
+            # print(motion_bit)
             #put them inside an array
+
+            #In that pool table there is action happening , The game is going on
+
+            pool_data = action_table.objects.create(pool_table_id = unique_pool_table_id,date = currentdate,time = currenttime,status = s )
+
             
-        #current date
-        y = datetime.datetime.now()
-        currentdate = y.strftime("%x")
-        print(currentdate)
-
-    #input into the database first start with the first table
-
-    pool = pool_table.objects.create(pool_name="gwanzo",pool_location="kyenjojo",pub_date=currentdate)
-
-    #first pull the unique raw
-
-    # then input inside the the second table 
-
-    pool_data = action_table.objects.create(pool_id=unique_row_id,x=m[0],y=m[1])
-
-   
-print(motion_bits)
+      
+       
+        
+# print(motion_bits)

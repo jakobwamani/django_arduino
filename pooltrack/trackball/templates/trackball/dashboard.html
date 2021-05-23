@@ -12,6 +12,10 @@ Hello, {{ user.username|default:'Guest' }}!
     {% else %}
         <a href="{% url 'login' %}">Login</a>
     {% endif %}
+
+    <p>Games played are </p>
+    <br/>
+    <p>Money to be collected is </p>
 </div>
 
 

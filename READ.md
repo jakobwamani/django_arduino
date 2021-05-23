@@ -55,7 +55,12 @@ For the login page, Django will try to use a template called registration/login.
 registration/logged_out.html.
 
 ## Change Passwords
+1.registration/password_change_form.html to display the password change form
 
+2.registration/password_change_done.html to show a confirmation that the password was successfully changed
+
+## How am i going to connect the user table to the other tables
+Am going to extend the User table and make it as a foreign key in the pool table because i want each user to store there own data and see , their own data.
 
 ## What tables database tables am i going to have?
 Pool table
