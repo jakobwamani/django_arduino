@@ -27,6 +27,27 @@ To provide a new way of game station earnings tracking
 + To develop the bit game system
 + To test and validate the bit game system to establish whether it addresses the general objective.
 
+### Chapter three
+
+### Requirements specification
+
+Specific requirements are split into two that is user and system requirements.
+
++ **User Requirements**
+The Bit Game System will be accessible to the bit game users.
+
++ **System Requirements**
+These are requirements for the system to be able to perform its functionality efficiently and effectively.
+
+#### Functional requirements
++ Time the game station has been active on a specific day
++ Detect presence of a client on a particular console
++ Store presence data on a particular console
++ Display presence data on a particular console
+
+#### Non-Functional requirements
++ The bit game system should be upload its data 5 times a day.
+
 ## Setup Django 
 https://django.readthedocs.io/en/stable/
 
