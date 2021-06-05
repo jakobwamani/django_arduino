@@ -6,7 +6,7 @@ from trackball.forms import CustomUserCreationForm
 from django.contrib.auth.models import User
 from trackball.models import pool_table , action_table 
 import datetime
-
+from .utilis import get_plot
 
 
 def index(request):
@@ -50,51 +50,21 @@ def dashboard(request):
         print(currentdate)
 
         #pull the data in the pooltable of the current date
-        pool_data = action_table.objects.filter(date = currentdate).values_list('date', 'time','status')
+        # pool_data = action_table.objects.filter(date = currentdate).values_list('date', 'time','status')
+        pool_data = action_table.objects.filter(date = currentdate)
+
         print("data type of pool_data is")
         print(type(pool_data))
         # print(pool_data)
 
-        #am using the global statement such that the variable can be gotten everywhere
-        # global pockets
+        x = [x.time for x in pool_data]
 
-        pockets = 0
+        y = [y.status for y in pool_data]
 
-        # money = 0
-        # 
-        #loop through the pool_data
-        for entry in pool_data:
-            print(entry)
-            #check for motion
-            if entry[2] == "1":
-                # print(entry[2])
-        #         #if its true then we add the balls that have been pocketed
-                pockets+=1
+        # chart = get_plot(x,y)
+        chart = get_plot(y)
 
-        #         #if pockets is 15 balls , then thats a game
-        # if(pockets == 15):
-        #         #reset the pockets variable
-        #         del pockets
-        #         #add a game to the game variable
-        #         game+=1
-        print("Today's pockets")
-        print(pockets)
-
-        print("Games played are ")
-        game = pockets / 15
-        print(game)
-
-        def counting(x):
-            dime = x * 100
-            return dime
-
-        print("Money to be collected")
-        shilling = counting(game)
-        print(shilling)
-
-    context_dict =  {'game':game,'shilling':shilling}
-
-    return render(request, "trackball/dashboard.html" ,context=context_dict)
+    return render(request, "trackball/dashboard.html" ,{'chart':chart})
 
 
 def register(request):

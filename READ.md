@@ -1,17 +1,9 @@
-## March 19 2021 
-My name is Wamani Jacob a Developer . I have been with computers most of my life time 
+# June 5th 2021
 
-I want to track the pool table balls
-
-
-## How?
-Track motion of pool balls
+## Google Docs
+[This document contains the Hardware and Software Specifications](https://docs.google.com/document/d/1VmVc4CmjYzYFPzCeiBg8k-KrPtAwDRACMsuuZYY_06A/edit)
 
 
-## Logic
-The pool table game ends when a 14 balls have sunk in the pool table pockets so my project will count balls that have sunk in the pcokets
-
-With that information , i can know how many games where played and how long the game took
 
 ## Setup Django 
 https://django.readthedocs.io/en/stable/
@@ -59,8 +51,42 @@ registration/logged_out.html.
 
 2.registration/password_change_done.html to show a confirmation that the password was successfully changed
 
-## How am i going to connect the user table to the other tables
+## How am i going to connect the user table to the other tables?
 Am going to extend the User table and make it as a foreign key in the pool table because i want each user to store there own data and see , their own data.
+
+First i will import user model.
+
+from django.contrib.auth.models import User
+
+Then create a field in the pool_table
+user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+## What do i want the user to see on the dashboard
+Games played in a day
+-how are we getting the games played 
+
+By the word dashboard , it means that am going to be dealing with views , so the logic is going to be in the views.py module
+
+Pull the user 
+grab the user whose data that i want to show
+
+Pull his or table
+
+Pull the data
+
+Show the data
+
+so i will grab data for a specfic date first 
+
+Then loop through it and code that for every input in the whole range
+if input status is equal 1 then add it to pockets variable
+
+if the pockets variable is equal to 15 its means that one game has been played 
+
+one game is equal to 50/=
+
+
+Money collected in a day
 
 ## What tables database tables am i going to have?
 Pool table
@@ -70,6 +96,9 @@ Action table
 To hold 
 'id', 'status', 'date', 'time'
 
+So a user has a pool table and his pooltable played on , so when am registering , i can combine a user to have the user's details and the pool table that they are having .
+
+## Combination of user table and the pool_table
 
 ## Requirements
 Django
