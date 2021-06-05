@@ -3,7 +3,29 @@
 ## Google Docs
 [This document contains the Hardware and Software Specifications](https://docs.google.com/document/d/1VmVc4CmjYzYFPzCeiBg8k-KrPtAwDRACMsuuZYY_06A/edit)
 
+# SOFTWARE AND HARDWARE REQUIREMENTS FOR GAME BIT SYSTEMS
 
+### Chapter one 
+
+### Background
+Owners of game station can only monitor their stations when present or else entrust someone
+
+### Chapter two
+
+### Problem statement
+Inconsistent tracking of the game station earnings which could be solved by computerised tracking 
+
+### Objectives of the project
+
+### General objective of the project
+To provide a new way of game station earnings tracking
+
+### Specific objectives 
+
++ To study the current system being used at game stations.
++ To identify the requirements for developing an a bit game system to counter the current system
++ To develop the bit game system
++ To test and validate the bit game system to establish whether it addresses the general objective.
 
 ## Setup Django 
 https://django.readthedocs.io/en/stable/
