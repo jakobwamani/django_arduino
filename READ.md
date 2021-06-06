@@ -48,6 +48,11 @@ These are requirements for the system to be able to perform its functionality ef
 #### Non-Functional requirements
 + The bit game system should be upload its data 5 times a day.
 
+
+### Chapter four 
+
+### System designs
+
 ## Setup Django 
 https://django.readthedocs.io/en/stable/
 
@@ -144,11 +149,11 @@ So a user has a pool table and his pooltable played on , so when am registering 
 ## Combination of user table and the pool_table
 
 ## Requirements
-Django
-Arduino IDE
-SQL
-HTML
-Python
++ Django
++ Arduino IDE
++ SQL
++ HTML
++ Python
 
 ## References
 How to Play Pool Table
