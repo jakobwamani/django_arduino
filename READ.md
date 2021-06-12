@@ -53,6 +53,83 @@ These are requirements for the system to be able to perform its functionality ef
 
 ### System designs
 
+
+# Installing Ubuntu Server on Raspberry pi 3
++ First, insert the microSD card into your computer.
+
+If you are on Ubuntu, you can run:
+
+sudo snap install rpi-imager
+
+Open the imager and follow the prompts
+
+This takes up some time so what i did was to download the ubuntu server 20.04.2 meant for raspberry pi 3 
+
+Right click on the "Disk image Writer" 
+
+Restore the intended disk
+
+With the SD card still inserted in your laptop, open a file manager and locate the “system-boot” partition on the card. It contains initial configuration files that load during the first boot process.
+
+Edit the network-config file to add your Wi-Fi credentials. 
+
+### **Note: wifi name must be enclosed in quotation marks**
+
+
+### Raspberry pi ubuntu server 21.04 command-line login
+ubuntu login :ubuntu
+password : ubuntu
+
+After that you will be prompted to create a new password and then retype the new password
+
+
+### using nmap to find the ip address of the raspberry pi
+
+i used nmap tool
+
+$ nmap -sn 192.168.43.0/24
+
+### using open shh to remotely connect to the raspberry pi
+Logging in from other computers
+
+Although SSH has many uses, its main job is to provide access to a command-line over a network. Even if you are installing SSH for completely different reasons, it's best to get command-line access before you try anything more complicated. 
+
+To login remotely using ssh i used my terminal
+
+$ ssh ubuntu@192.168.43.35
+
+### install ubuntu desktop
+
+$ sudo apt update
+$ sudo apt upgrade
+
+$ sudo apt install xubuntu-desktop
+
+$ sudo reboot
+
+### Enable auto login
+
+Enter the command **sudo raspi-config**. Scroll down to **Boot Options** and select **Console Autologin**. Then exit the configuration menu and reboot.
+
+#### Next Step
+
+I made this file: /etc/systemd/system/getty@tty1.service.d/autologin.conf
+And put this in it:
+
+
+```
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin pi --noclear %I 38400 linux
+```
+
+After that, i runned this:
+
+$ sudo systemctl enable getty@tty1.service
+
+### Making wifi work on ubuntu
+
+
 ## Setup Django 
 https://django.readthedocs.io/en/stable/
 
@@ -161,3 +238,9 @@ https://www.gametablesonline.com/blog/how-to-play-pool-beginners-guide/
 
 User management using Django
 https://realpython.com/django-user-management/
+
+Open ssh
+https://help.ubuntu.com/community/SSH/OpenSSH/ConnectingTo
+
+How-to-enable-disable-automatic-login-in-ubuntu
+https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu/
