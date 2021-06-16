@@ -107,7 +107,7 @@ $ sudo apt install xubuntu-desktop
 
 $ sudo reboot
 
-### Enable auto login
+### Enable auto login in console
 
 Enter the command **sudo raspi-config**. Scroll down to **Boot Options** and select **Console Autologin**. Then exit the configuration menu and reboot.
 
@@ -127,9 +127,15 @@ After that, i runned this:
 
 $ sudo systemctl enable getty@tty1.service
 
-### Making wifi work on ubuntu
+### installing git
+$ sudo apt install git
+
+### copy files remotely via shh using SCP "secure copy" utility
+
+$ scp requirements.txt ubuntu@192.168.43.35:/home/ubuntu/venvs/tangibleai
 
 
+### Clone Github repository
 ## Setup Django 
 https://django.readthedocs.io/en/stable/
 

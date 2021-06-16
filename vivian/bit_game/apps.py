@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TrackballConfig(AppConfig):
+class BitGameConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'trackball'
+    name = 'bit_game'
