@@ -136,6 +136,23 @@ $ scp requirements.txt ubuntu@192.168.43.35:/home/ubuntu/venvs/tangibleai
 
 
 ### Clone Github repository
+$ git clone repository url
+
+### Get an email about the time and date raspberry pi was powered on
+
+#### Requirements
++ Gmail account for development
++ cron job
++ smtplib module
++ ssl module
+
+The time and date will be shown by the email.
+
+#### To set up a Gmail address for testing your code, do the following:
++ Create a new Google account.
++ Turn Allow less secure apps to ON. Be aware that this makes it easier for others to gain access to your account.
+
+
 ## Setup Django 
 https://django.readthedocs.io/en/stable/
 
@@ -250,3 +267,6 @@ https://help.ubuntu.com/community/SSH/OpenSSH/ConnectingTo
 
 How-to-enable-disable-automatic-login-in-ubuntu
 https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu/
+
+Sending emails with python
+https://realpython.com/python-send-email/#sending-a-plain-text-email
