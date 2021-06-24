@@ -98,6 +98,19 @@ To login remotely using ssh i used my terminal
 
 $ ssh ubuntu@192.168.43.35
 
+The text below appears whenever i login to the raspberry pi using ssh
+
+```bash
+The authenticity of host '192.168.43.36 (192.168.43.36)' can't be established.
+ECDSA key fingerprint is SHA256:haZoIbxB4bbnngdUS6jjn+yluq+9XEpWv4R6vvZ5Awk.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.43.36' (ECDSA) to the list of known hosts.
+ubuntu@192.168.43.36's password: 
+Welcome to Ubuntu 21.04 (GNU/Linux 5.11.0-1009-raspi aarch64)
+```
+
+
+
 ### install ubuntu desktop
 
 $ sudo apt update
@@ -120,7 +133,7 @@ And put this in it:
 ```
 [Service]
 ExecStart=
-ExecStart=-/sbin/agetty --autologin pi --noclear %I 38400 linux
+ExecStart=-/sbin/agetty --autologin username --noclear %I 38400 linux
 ```
 
 After that, i runned this:
@@ -148,9 +161,59 @@ $ git clone repository url
 
 The time and date will be shown by the email.
 
+```python
+import smtplib, ssl
+
+#email 
+
+port = 465  # For SSL
+smtp_server = "smtp.gmail.com"
+sender_email = "nicobwan@gmail.com"  # Enter your address
+receiver_email = "offdutymanager@gmail.com"  # Enter receiver address
+# password = input("Type your password and press enter: ")
+password = "xxxxx"
+message = """\
+Subject: Raspberry Vivian
+
+I have been powered on."""
+
+context = ssl.create_default_context()
+with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+    server.login(sender_email, password)
+    server.sendmail(sender_email, receiver_email, message)
+
+
+```
+
+### installing dhcp server on my laptop to statically assign an ip to the raspberry pi
+
+sudo apt install isc-dhcp-server -y
+### create an shell script to run the python script to send email
+
+
+### create a cron job to run the python script to send email.
+
+### Code a cron job to start whenever the raspberry pi is started
+
+
 #### To set up a Gmail address for testing your code, do the following:
 + Create a new Google account.
 + Turn Allow less secure apps to ON. Be aware that this makes it easier for others to gain access to your account.
+
+### Setting time on ubuntu server
+
+    Search for your timezone
+
+timedatectl list-timezones
+
+    Set your timezone
+
+sudo timedatectl set-timezone America/Toronto
+
+    Enable timesyncd
+
+sudo timedatectl set-ntp on
+
 
 
 ## Setup Django 
@@ -248,6 +311,102 @@ So a user has a pool table and his pooltable played on , so when am registering 
 
 ## Combination of user table and the pool_table
 
+
+## Make raspberry pi talk to arduino board
+```python
+import datetime
+from datetime import datetime
+import serial
+from time import time, ctime
+
+arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=.1)
+#now = datetime.datetime.now()
+#dateTimeObj = datetime.now()
+t = time()
+ti= ctime(t)
+while True:
+	data = arduino.readline()[:-2] #the last bit gets rid of the new-line chars
+	if data:
+		print ( ":" ,data)
+
+```
+
+
+### Requirements
++ serial module(**pip3 install pyserial**)
+
+## Change the database from sqlite3 to mysql 
+
+```bash
+sudo apt install mysql-server
+
+```
+In order to use MySQL with our project, we will need a Python 3 database connector library compatible with Django. So, we will install the database connector, mysqlclient,
+
+First ensure that you have python3-dev installed
+```bash
+sudo apt install python3-dev
+```
+We can now install the necessary Python and MySQL development headers and libraries:
+
+```bash
+sudo apt install python3-dev libmysqlclient-dev default-libmysqlclient-dev
+
+```
+
+```bash
+pip install mysqlclient
+```
+### Create the database
+Now that the skeleton of my Django application has been set up and mysqlclient and mysql-server have been installed, we will to need to configure my Django backend for MySQL compatibility.
+
+Log in via the MySQL root with the following command:
+
+```mysql
+sudo mysql -u root
+```
+### create a mysql user to use the bit_game database
+```mysql
+CREATE USER 'jacob'@'%' IDENTIFIED WITH mysql_native_password BY 'vivian@123';
+
+```
+### Next, let the database know that our "jacob" should have complete access to the database we set up:
+```mysql
+GRANT ALL ON bit_game.* TO 'jacob'@'%';
+```
+
+### Flush the privileges so that the current instance of MySQL knows about the recent changes we’ve made:
+```mysql
+FLUSH PRIVILEGES;
+```
+## Add the MySQL Database Connection to your Application
+Note: It is important to remember that connection settings, according to the Django documentation, are used in the following order:
++ OPTIONS
++ NAME, USER, PASSWORD, HOST, PORT
++ MySQL option files.
+
+Navigate to settings.py 
+Add the following code
+```python
+...
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': '/etc/mysql/my.cnf',
+        },
+    }
+}
+...
+```
+### Requirements
++ python-dev 
++ mysql-server 
++ libmysqlclient-de
+
 ## Requirements
 + Django
 + Arduino IDE
@@ -270,3 +429,6 @@ https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu/
 
 Sending emails with python
 https://realpython.com/python-send-email/#sending-a-plain-text-email
+
+crontab at reboot
+https://phoenixnap.com/kb/crontab-reboot
