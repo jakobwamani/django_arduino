@@ -385,10 +385,9 @@ Note: It is important to remember that connection settings, according to the Dja
 + NAME, USER, PASSWORD, HOST, PORT
 + MySQL option files.
 
-Navigate to settings.py 
+### Navigate to settings.py 
 Add the following code
 ```python
-...
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -400,7 +399,33 @@ DATABASES = {
         },
     }
 }
-...
+```
+
+Next, let’s edit the config file so that it has your MySQL credentials. Use nano as sudo to edit the file and add the following information:
+
+```bash
+sudo nano /etc/mysql/my.cnf
+```
+Add the following lines
+
+```bash
+[client]
+database = bit_game 
+user = jacob     
+password = vivian@123          
+default-character-set = utf8
+```
+
+Once the file has been edited, we need to restart MySQL for the changes to take effect.
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart mysql
+```
+
+## Test MySQL Connection to Application
+```bash
+python manage.py migrate
 ```
 ### Requirements
 + python-dev 
@@ -432,3 +457,6 @@ https://realpython.com/python-send-email/#sending-a-plain-text-email
 
 crontab at reboot
 https://phoenixnap.com/kb/crontab-reboot
+
+how-to-create-a-django-app-and-connect-it-to-a-mysql-database
+https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database
