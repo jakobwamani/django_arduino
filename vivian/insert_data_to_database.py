@@ -65,7 +65,8 @@ try:
                     # stopwatch.restart() # reset and start again
                     # t = time.process_time()
                     global start
-		    start = timer()
+                    start = timer()
+		             
                 else:
                     #Get current time
                     c = datetime.datetime.now()
