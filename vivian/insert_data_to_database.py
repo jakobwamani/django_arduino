@@ -13,6 +13,7 @@ from datetime import timedelta
 import pandas as pd
 import django
 import os
+import codecs
 
 from django.conf import settings
 
@@ -49,7 +50,7 @@ try:
                 print ( ":" ,data)
                 #change data variable from bytes to String
                 # Now, let's decode/convert them into a string
-                s = data.decode('iso8859-1')
+                s = data.decode('utf-8')
                 print(s)
                 motion_time = 0.0 
                 stopwatch = Stopwatch() # Stopwatch keeps running
@@ -77,10 +78,10 @@ try:
                     # elapsed_time = time.process_time() - t
                     # print("active_time")
                     # print(elapsed_time)
-                    end = timer()
-                    print("Been Active for")
-                    motion_bit = timedelta(seconds=end-start)
-                    print(motion_bit)
+                    #end = timer()
+                    #print("Been Active for")
+                    #motion_bit = timedelta(seconds=end-start)
+                    #print(motion_bit)
                     #put them inside an array
                     
             
@@ -92,7 +93,7 @@ try:
                
                 cursor = connection.cursor()
                 # cursor.execute(mySql_insert_query)
-                cursor.execute("INSERT INTO bit_game (status, date, time)  VALUES (%s, %s, %s)", (data, currentdate, str(currenttime)))
+                cursor.execute("INSERT INTO bit_game_track  (status, date, time)  VALUES (%s, %s, %s)", (data, currentdate, str(currenttime)))
                 connection.commit()
                 print(cursor.rowcount, "Record inserted successfully into Track table")
                 #cursor.close()
