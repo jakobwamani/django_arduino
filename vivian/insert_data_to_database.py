@@ -72,7 +72,7 @@ try:
                     global start
                     start = timer()
 		             
-                else:
+                elif s == "0":
                     #Get current time
                     c = datetime.datetime.now()
                     currenttime = c.strftime("%X")
@@ -93,6 +93,8 @@ try:
                     #print(motion_bit)
 
                     #put them inside an array
+                else:
+                    continue
                     
             
                 #current date
