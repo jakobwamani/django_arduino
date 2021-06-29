@@ -49,7 +49,7 @@ try:
                 print ( ":" ,data)
                 #change data variable from bytes to String
                 # Now, let's decode/convert them into a string
-                s = data.decode('UTF-8')
+                s = data.decode('iso8859-1')
                 print(s)
                 motion_time = 0.0 
                 stopwatch = Stopwatch() # Stopwatch keeps running
@@ -64,7 +64,8 @@ try:
                     # stopwatch.start() # Start it again
                     # stopwatch.restart() # reset and start again
                     # t = time.process_time()
-                    start = timer()
+                    global start
+		    start = timer()
                 else:
                     #Get current time
                     c = datetime.datetime.now()
