@@ -50,8 +50,8 @@ try:
                 print ( ":" ,data)
                 #change data variable from bytes to String
 
-                setdata = data.decode('utf-8')
-                s = setdata[0]
+                # setdata = data.decode('utf-8')
+                s = data[0]
 
                 # s = data.decode('utf-8')
 
