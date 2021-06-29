@@ -92,7 +92,7 @@ try:
                
                 cursor = connection.cursor()
                 # cursor.execute(mySql_insert_query)
-                cursor.execute("INSERT INTO bit_game_track (status, date, time)  VALUES (%s, %s, %s)", (data, currentdate, str(currenttime)))
+                cursor.execute("INSERT INTO bit_game (status, date, time)  VALUES (%s, %s, %s)", (data, currentdate, str(currenttime)))
                 connection.commit()
                 print(cursor.rowcount, "Record inserted successfully into Track table")
                 #cursor.close()
