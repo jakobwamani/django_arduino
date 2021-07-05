@@ -432,6 +432,17 @@ python manage.py migrate
 + mysql-server 
 + libmysqlclient-de
 
+# Visualization of the data
+https://realpython.com/python-dash/#deploy-your-dash-application-to-heroku 
+July 5th 2021
+As you install heroku on raspberry pi you must also install node js as a must 
+
+Heroku requires a graphical user interface to login hence i must install the graphical user interface of ubuntu
+```python
+$ sudo apt install lubuntu-desktop
+
+
+```
 ## Requirements
 + Django
 + Arduino IDE
@@ -460,3 +471,9 @@ https://phoenixnap.com/kb/crontab-reboot
 
 how-to-create-a-django-app-and-connect-it-to-a-mysql-database
 https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database
+
+how-to-deploy-your-app-to-heroku-from-raspberry-pi-
+https://dev.to/heroku/how-to-deploy-your-app-to-heroku-from-raspberry-pi-162k\
+
+how-to-install-node-js
+https://gist.github.com/stonehippo/f4ef8446226101e8bed3e07a58ea512a
