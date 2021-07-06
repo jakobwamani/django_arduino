@@ -61,6 +61,8 @@ If you are on Ubuntu, you can run:
 
 sudo snap install rpi-imager
 
+it takes the rpi-imager 40 minutes plus to write ubuntu 21.04 server to the sd card
+
 Open the imager and follow the prompts
 
 This takes up some time so what i did was to download the ubuntu server 20.04.2 meant for raspberry pi 3 
@@ -79,6 +81,8 @@ Edit the network-config file to add your Wi-Fi credentials.
 ### Raspberry pi ubuntu server 21.04 command-line login
 ubuntu login :ubuntu
 password : ubuntu
+
+
 
 After that you will be prompted to create a new password and then retype the new password
 
@@ -109,16 +113,28 @@ ubuntu@192.168.43.36's password:
 Welcome to Ubuntu 21.04 (GNU/Linux 5.11.0-1009-raspi aarch64)
 ```
 
+### upgrading ubuntu
 
+$ sudo apt upgrade
+This take one full hour 
 
 ### install ubuntu desktop
 
 $ sudo apt update
 $ sudo apt upgrade
 
-$ sudo apt install xubuntu-desktop
+$ sudo apt install xubuntu-desktop(this one hour to download and another hour to unpack)
 
 $ sudo reboot
+
+### uninstall the desktop
+
+sudo apt remove xubuntu-desktop
+sudo apt autoremove xubuntu-desktop
+sudo apt purge xubuntu-desktop
+
+### Removing gnome
+sudo apt-get remove --purge gnome*
 
 ### Enable auto login in console
 
@@ -433,6 +449,7 @@ python manage.py migrate
 + libmysqlclient-de
 
 # Visualization of the data
+
 https://realpython.com/python-dash/#deploy-your-dash-application-to-heroku 
 July 5th 2021
 As you install heroku on raspberry pi you must also install node js as a must 
