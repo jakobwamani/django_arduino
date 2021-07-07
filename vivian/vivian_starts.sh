@@ -5,10 +5,15 @@ source /home/ubuntu/.venvs/tangibleai/bin/activate
 echo "I have reached the environment.........."
 #get Vivian to start collecting the data
 
+echo "making a csv............"
 #Vivian gets the csv file
 /home/ubuntu/.venvs/tangibleai/bin/python  /home/ubuntu/.code/django_arduino/vivian/get_database_info_to_csv.py
-echo "making a csv............"
 
+#Go into the visuals directory
+cd /home/ubuntu/.code/django_arduino/vivian/visuals
+
+
+echo "Working on visuals now"
 
 #Vivian saves thats data to heroku git
 /usr/bin/git  status
@@ -20,4 +25,26 @@ echo "making a csv............"
 /usr/bin/git commit -am "Add_info"
 
 #Vivian pushes all that to heroku
-/usr/bin/git push /usr/local/bin/heroku  master
+/usr/bin/git push heroku  master
+
+#Save all this to github
+/usr/bin/git push origin vivian
+
+
+#Leave that directory
+cd ..
+
+#Back to root directory
+
+echo "Back to roots"
+
+#Save all this to github
+
+/usr/bin/git status
+/usr/bin/git commit -am "more_data"
+/usr/bin/git push origin vivian
+
+#Vivian starts collecting data
+/home/ubuntu/.venvs/tangibleai/bin/python  /home/ubuntu/.code/django_arduino/vivian/insert_data_to_database.py
+
+
