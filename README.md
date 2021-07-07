@@ -135,6 +135,7 @@ sudo apt purge xubuntu-desktop
 
 ### Removing gnome
 sudo apt-get remove --purge gnome*
+sudo apt autoremove
 
 ### Enable auto login in console
 
@@ -459,6 +460,11 @@ Heroku requires a graphical user interface to login hence i must install the gra
 $ sudo apt install lubuntu-desktop
 
 
+```
+
+# If i need to log in to the Heroku CLI without a browser.(This took two days to uncover)
+```bash
+heroku login -i
 ```
 ## Requirements
 + Django
