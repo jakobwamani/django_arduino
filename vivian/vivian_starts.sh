@@ -42,7 +42,7 @@ password: "headphone@1"
 /usr/bin/git push origin vivian
 #expect check
 #
-echo username
+(sleep 2; echo) | echo username
 #
 echo password
 #Vivian starts collecting data
