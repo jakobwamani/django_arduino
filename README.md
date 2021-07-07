@@ -473,6 +473,8 @@ heroku login -i
 + HTML
 + Python
 
+
+# It took me one month and thirty days to finish the prototype July 6 2021
 ## References
 How to Play Pool Table
 https://www.gametablesonline.com/blog/how-to-play-pool-beginners-guide/
@@ -500,3 +502,6 @@ https://dev.to/heroku/how-to-deploy-your-app-to-heroku-from-raspberry-pi-162k\
 
 how-to-install-node-js
 https://gist.github.com/stonehippo/f4ef8446226101e8bed3e07a58ea512a
+
+changing-username-and-hostname-on-ubuntu
+https://www.hepeng.me/changing-username-and-hostname-on-ubuntu/
