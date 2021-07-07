@@ -38,15 +38,17 @@ echo "Back to roots"
 
 /usr/bin/git status
 /usr/bin/git commit -am "more_data"
-/usr/bin/git push origin vivian
-#expect check
+
 set user "jakobwamani"
 set pass "headphone@1"
 
+spawn /usr/bin/git push origin vivian
 
-echo "$user"
+expect "Username for 'https://github.com':"
+send "$user"
 
-echo "$pass"
+expect "Password for 'https://github.com'"
+send "$pass"
 
 echo "Collecting data now...................."
 #Vivian starts collecting data
