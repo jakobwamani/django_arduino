@@ -49,7 +49,7 @@ expect "Username for 'https://github.com':"
 send "jakobwamani\n"
 
 expect "Password for 'https://github.com'"
-send "headphone@1"
+send "headphone@1\n"
 
 expect eof
 EOD
