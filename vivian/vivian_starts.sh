@@ -20,4 +20,4 @@ echo "making a csv............"
 /usr/bin/git commit -am "Add_info"
 
 #Vivian pushes all that to heroku
-/usr/bin/git push heroku master
+/usr/bin/git push /usr/local/bin/heroku  master
