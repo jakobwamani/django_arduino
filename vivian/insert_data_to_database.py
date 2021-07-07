@@ -7,7 +7,7 @@ from time import time
 from time import sleep
 from time import time, ctime
 from time import gmtime, strftime
-from stopwatch import Stopwatch
+#from stopwatch import Stopwatch
 from timeit import default_timer as timer
 from datetime import timedelta
 import pandas as pd
