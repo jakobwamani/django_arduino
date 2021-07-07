@@ -45,10 +45,10 @@ set pass "headphone@1"
 
 spawn /home/ubuntu/.code/django_arduino/vivian/vivian_starts.sh
 
-expect "Username for 'https://github.com':"
-send "$user"
-expect "Password for 'https://github.com': "
-send "$pass"
+
+read "$user"
+
+read "$pass"
 
 echo "Collecting data now...................."
 #Vivian starts collecting data
