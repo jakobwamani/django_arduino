@@ -40,6 +40,8 @@ echo "Back to roots"
 /usr/bin/git commit -am "more_data"
 /usr/bin/git push origin vivian
 #expect check
+spawn vivian_starts.sh
+
 expect "Username for 'https://github.com':"
 send "jakobwamani"
 expect "Password for 'https://github.com':"
