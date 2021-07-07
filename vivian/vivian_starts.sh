@@ -35,15 +35,16 @@ cd ..
 echo "Back to roots"
 
 #Save all this to github
-
+username: "jakobwamani"
+password: "headphone@1"
 /usr/bin/git status
 /usr/bin/git commit -am "more_data"
 /usr/bin/git push origin vivian
 #expect check
 #
-echo "jakobwamani"
+echo username
 #
-echo "headphone@1"
+echo password
 #Vivian starts collecting data
 /home/ubuntu/.venvs/tangibleai/bin/python  /home/ubuntu/.code/django_arduino/vivian/insert_data_to_database.py
 
