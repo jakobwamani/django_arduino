@@ -46,10 +46,10 @@ set pass "headphone@1"
 spawn /usr/bin/git push origin vivian
 
 expect "Username for 'https://github.com':"
-send "$1\n"
+send "jakobwamani"
 
 expect "Password for 'https://github.com'"
-send "$pass"
+send "headphone@1"
 
 expect eof
 EOD
