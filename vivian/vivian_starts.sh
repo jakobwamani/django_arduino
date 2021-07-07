@@ -43,12 +43,10 @@ echo "Back to roots"
 set user "jakobwamani"
 set pass "headphone@1"
 
-spawn /home/ubuntu/.code/django_arduino/vivian/vivian_starts.sh
 
+echo "$user"
 
-read "$user"
-
-read "$pass"
+echo "$pass"
 
 echo "Collecting data now...................."
 #Vivian starts collecting data
