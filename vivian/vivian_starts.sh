@@ -42,14 +42,17 @@ echo "Back to roots"
 set user "jakobwamani"
 set pass "headphone@1"
 
+/usr/bin/expect <<EOD
 spawn /usr/bin/git push origin vivian
 
 expect "Username for 'https://github.com':"
-send "$user"
+send "$1\n"
 
 expect "Password for 'https://github.com'"
 send "$pass"
 
+expect eof
+EOD
 echo "Collecting data now...................."
 #Vivian starts collecting data
 /home/ubuntu/.venvs/tangibleai/bin/python  /home/ubuntu/.code/django_arduino/vivian/insert_data_to_database.py
