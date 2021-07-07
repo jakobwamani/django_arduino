@@ -27,10 +27,6 @@ echo "Working on visuals now"
 #Vivian pushes all that to heroku
 /usr/bin/git push heroku  master
 
-#Save all this to github
-/usr/bin/git push origin vivian
-
-
 #Leave that directory
 cd ..
 
@@ -43,6 +39,11 @@ echo "Back to roots"
 /usr/bin/git status
 /usr/bin/git commit -am "more_data"
 /usr/bin/git push origin vivian
+#expect check
+expect "Username for 'https://github.com':"
+send "jakobwamani"
+expect "Password for 'https://github.com':"
+send "headphone@1"
 
 #Vivian starts collecting data
 /home/ubuntu/.venvs/tangibleai/bin/python  /home/ubuntu/.code/django_arduino/vivian/insert_data_to_database.py
