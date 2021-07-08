@@ -26,7 +26,7 @@ app.layout = html.Div(
 
         html.P(
 
-            children="Motion data of Game consoles",
+            children=" Game consoles A",
 
         ),
 
@@ -48,7 +48,7 @@ app.layout = html.Div(
 
                 ],
 
-                "layout": {"title": "Motion Data"},
+                "layout": {"title": "Gaming"},
 
             },
 
