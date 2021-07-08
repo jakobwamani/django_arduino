@@ -53,8 +53,6 @@ send "headphone@1\n"
 
 expect eof
 EOD
-echo "Collecting data now...................."
-#Vivian starts collecting data
-/home/ubuntu/.venvs/tangibleai/bin/python  /home/ubuntu/.code/django_arduino/vivian/insert_data_to_database.py
 
+echo "System updated"
 
