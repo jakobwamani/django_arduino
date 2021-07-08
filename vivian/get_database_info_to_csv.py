@@ -10,7 +10,7 @@ try:
   conn=sql.connect('db.sqlite3')
 
  # To view table data in table format
-  print ("******Employee Table Data*******")
+  
   cur = conn.cursor()
   cur.execute('''SELECT * FROM bit_game_track''')
   rows = cur.fetchall()
