@@ -27,8 +27,8 @@ echo "adding changes to local linus repo.........."
 /usr/bin/git commit -m 'send it'
 echo "commiting changes to linus repo.............."
 #push those changes to linus
-#set user = "jakobwamani"
-#set pd = "headphone@1" 
+set user = "jakobwamani"
+set pd = "headphone@1" 
 
 #/usr/bin/git push origin master
 
@@ -38,7 +38,7 @@ expect "Username for 'https://github.com':"
 send "$user\n"
 expect "Password for 'https://github.com':"
 send "$pd\n"
-interact
+expect eof
 EOD
 echo "pushing changes now to linus...................."
 #after all that we start to collect the data
