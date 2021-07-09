@@ -41,7 +41,4 @@ send "headphone@1\n"
 expect eof
 EOD
 echo "pushing changes now to linus...................."
-#after all that we start to collect the data
-echo "starting to collect data now...................."
-/home/ubuntu/.venvs/tangibleai/bin/python   /home/ubuntu/.code/django_arduino/vivian/insert_data_to_database.py
 
