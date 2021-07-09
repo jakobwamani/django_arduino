@@ -38,7 +38,7 @@ expect "Username for 'https://github.com':"
 send "$user\n"
 expect "Password for 'https://github.com':"
 send "$pd\n"
-expect eof
+interact
 EOD
 echo "pushing changes now to linus...................."
 #after all that we start to collect the data
