@@ -29,6 +29,8 @@ echo "commiting changes to linus repo.............."
 #push those changes to linus
 #set user = "jakobwamani"
 #set pd = "headphone@1" 
+/usr/bin/git push origin master
+
 
 #/usr/bin/expect <<EOD
 #spawn /usr/bin/git push origin master
