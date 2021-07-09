@@ -466,6 +466,14 @@ $ sudo apt install lubuntu-desktop
 ```bash
 heroku login -i
 ```
+
+### How to make a bash script run in cron example
+```bash
+14 10 * * *  /usr/bin/sh  /home/ubuntu/.code/django_arduino/vivian/vivian_starts.sh
+```
+
+# Automation
+Here is used shell scripting 
 ## Requirements
 + Django
 + Arduino IDE
@@ -505,3 +513,6 @@ https://gist.github.com/stonehippo/f4ef8446226101e8bed3e07a58ea512a
 
 changing-username-and-hostname-on-ubuntu
 https://www.hepeng.me/changing-username-and-hostname-on-ubuntu/
+
+shell-script-submitting-a-password-after-a-prompt
+https://daniel-ellis.medium.com/shell-script-submitting-a-password-after-a-prompt-690bcf144c0e
