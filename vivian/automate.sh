@@ -27,12 +27,13 @@ echo "adding changes to local linus repo.........."
 /usr/bin/git commit -m 'send it'
 echo "commiting changes to linus repo.............."
 #push those changes to linus
-/usr/bin/expect <<EOD
+
+/usr/bin/expect << EOD
 spawn /usr/bin/git push origin vivian
 expect "Username for 'https://github.com':"
-send "$jakobwamani\n"
+send "jakobwamani\n"
 expect "Password for 'https://jakobwamani@github.com':"
-send "$headphone@1\n"
+send "headphone@1\n"
 expect eof
 EOD
 echo "pushing changes now to linus...................."
