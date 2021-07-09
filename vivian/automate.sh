@@ -32,7 +32,7 @@ echo "commiting changes to linus repo.............."
 spawn /usr/bin/git push origin master
 expect "Username for 'https://github.com':"
 send "$jakobwamani\n"
-expect "Password for 'https://jakobwamani@github.com':"
+expect "Password for 'https://github.com':"
 send "$headphone@1\n"
 expect eof
 EOD
