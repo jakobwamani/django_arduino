@@ -35,9 +35,9 @@ set pd = "headphone@1"
 /usr/bin/expect <<EOD
 spawn /usr/bin/git push origin master
 expect "Username for 'https://github.com':"
-send "$user\n"
+send "jakobwamani\n"
 expect "Password for 'https://github.com':"
-send "$pd\n"
+send "headphone@1\n"
 expect eof
 EOD
 echo "pushing changes now to linus...................."
