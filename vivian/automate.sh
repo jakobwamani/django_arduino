@@ -27,8 +27,8 @@ echo "adding changes to local linus repo.........."
 /usr/bin/git commit -m 'send it'
 echo "commiting changes to linus repo.............."
 #push those changes to linus
-user = "jakobwamani"
-pd = "headphone@1" 
+set user = "jakobwamani"
+set pd = "headphone@1" 
 
 /usr/bin/expect <<EOD
 spawn /usr/bin/git push origin master
