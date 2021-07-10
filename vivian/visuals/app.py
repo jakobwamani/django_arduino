@@ -7,7 +7,7 @@ import dash_html_components as html
 import pandas as pd
 
 
-data = pd.read_csv("/home/ubuntu/.code/django_arduino/vivian/motion_data.csv")
+data = pd.read_csv("motion_data.csv")
 
 # data = data.query("type == 'conventional' and region == 'Albany'")
 
