@@ -27,9 +27,9 @@ try:
   #     csv_writer.writerow([i[0] for i in cursor.description])
   #     csv_writer.writerows(cursor)
   db_df = pd.read_sql_query("SELECT * FROM bit_game_track", conn)
-  db_df.to_csv('visuals/motion_data.csv', index=False)
+  db_df.to_csv('motion_data.csv', index=False)
 
-  dirpath = os.getcwd() + "/visuals/motion_data.csv"
+  dirpath = os.getcwd() + "/motion_data.csv"
   print ("Data exported Successfully into {}".format(dirpath))
 
 except Error as e:
