@@ -7,7 +7,7 @@ import pandas as pd
 try:
 
   # Connect to database
-  conn=sql.connect('db.sqlite3')
+  conn=sql.connect('/home/ubuntu/.code/django_arduino/vivian/db.sqlite3')
 
  # To view table data in table format
   
@@ -29,7 +29,7 @@ try:
   db_df = pd.read_sql_query("SELECT * FROM bit_game_track", conn)
   db_df.to_csv('visuals/motion_data.csv', index=False)
 
-  dirpath = os.getcwd() + "/visuals/motion_data.csv"
+  dirpath = os.getcwd() + "visuals/motion_data.csv"
   print ("Data exported Successfully into {}".format(dirpath))
 
 except Error as e:
