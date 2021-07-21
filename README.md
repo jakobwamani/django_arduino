@@ -469,8 +469,9 @@ heroku login -i
 
 ### How to make a bash script run in cron example
 ```bash
-14 10 * * *  /usr/bin/sh  /home/ubuntu/.code/django_arduino/vivian/vivian_starts.sh
+@reboot sleep 90  && /usr/bin/bash /home/ubuntu/.code/django_arduino/vivian/automate.sh
 ```
+The line above , thats how you write a cron job at reboot ,give some time to fully boot 
 
 # Automation
 Here is used shell scripting 
@@ -516,3 +517,5 @@ https://www.hepeng.me/changing-username-and-hostname-on-ubuntu/
 
 shell-script-submitting-a-password-after-a-prompt
 https://daniel-ellis.medium.com/shell-script-submitting-a-password-after-a-prompt-690bcf144c0e
+
+
