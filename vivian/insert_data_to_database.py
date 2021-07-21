@@ -29,7 +29,7 @@ from bit_game.models import Track
 
 
 try:
-    connection = sqlite3.connect("db.sqlite3")
+    connection = sqlite3.connect("/home/ubuntu/.code/django_arduino/vivian/db.sqlite3")
     if connection:
         # db_Info = connection.get_server_info()
         # print("Connected to MySQL Server version ", db_Info)
